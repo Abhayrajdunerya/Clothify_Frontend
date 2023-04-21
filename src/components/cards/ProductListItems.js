@@ -38,7 +38,8 @@ const ProductListItems = ({ product, brand, onStarClick, star, handleAddToCart, 
     }
 
     const refreshVarients = (newSize, newColor) => {
-        let url = `http://localhost:3000/product/${varients[newColor][newSize]['slug']}`
+        // let url = `http://localhost:3000/product/${varients[newColor][newSize]['slug']}`
+        let url = `https://clothify-frontend-nine.vercel.app/${varients[newColor][newSize]['slug']}`
         window.location = url;
     }
 
