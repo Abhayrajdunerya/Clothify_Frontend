@@ -72,11 +72,12 @@ const Login = () => {
         dispatch({
           type: 'LOGGED_IN_USER',
           payload: {
-            name: user.email.split('@')[0],
-            email: email,
+            name: res.data.name,
+            email: res.data.email,
             token: idTokenResult.token,
-            role: 'subscriber',
-            _id: user.uid,
+            role: res.data.role,
+            // _id: user.uid,
+            _id: res.data._id,
           }
         })
         roleBasedRedirect(res);
@@ -118,7 +119,7 @@ const Login = () => {
 
               <div className="flex items-center justify-between">
                 <div className="text-sm">
-                  <Link to={'/Forgot-Password'} className="font-medium text-blue-600 hover:text-blue-500"> Forgot your password? </Link>
+                  <Link to={'/forgot/password'} className="font-medium text-blue-600 hover:text-blue-500"> Forgot your password? </Link>
                 </div>
               </div>
 

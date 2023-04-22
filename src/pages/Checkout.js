@@ -74,6 +74,8 @@ const Checkout = () => {
             setTotalAfterDiscount(0);
             toast.success('Cart is empty. Continue shopping.')
         })
+
+        navigate('/');
     }
 
     const saveAddressToDB = (e) => {
@@ -288,7 +290,7 @@ const Checkout = () => {
         </div>
         <div className="">
             {totalAfterDiscount > 0 && (
-                <p className='bg-orange-200 text-green-700 font-semibold text-base p-2 my-2 rounded-sm'>Discount Applied: Total Payable: ${totalAfterDiscount}</p>
+                <p className='bg-orange-200 text-green-700 font-semibold text-base p-2 my-2 rounded-sm'>Discount Applied: Total Payable: ₹{totalAfterDiscount}</p>
             )}
         </div>
         <div className='font-semibold text-lg my-2 flex space-x-2'>Total: <div className="text-green-700 mx-4"> ₹{totalAfterDiscount ? totalAfterDiscount : total}</div></div>
@@ -297,7 +299,7 @@ const Checkout = () => {
           <button onClick={handlePay} className="flex mx-2 items-center justify-center text-white bg-blue-600 border-0 py-2 px-2 focus:outline-none hover:bg-blue-700 rounded-sm text-sm">
             <BsFillBagCheckFill className='' /> Pay ₹{totalAfterDiscount ? totalAfterDiscount : total}
           </button>
-          <button disabled={!products.length} onClick={emptyCart} className="flex mx-2 text-white bg-blue-600 border-0 py-2 px-2 focus:outline-none hover:bg-blue-700 rounded-sm text-sm">
+          <button disabled={products.length === 0} onClick={emptyCart} className="flex mx-2 text-white bg-blue-600 border-0 py-2 px-2 focus:outline-none hover:bg-blue-700 rounded-sm text-sm">
               Empty Cart
           </button>
       </div>
